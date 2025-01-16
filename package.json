@@ -1,0 +1,57 @@
+{
+  "name": "hoocs",
+  "version": "0.0.1",
+  "description": "A CLI-driven React hooks library offering a collection of ready-to-use hooks that you can easily copy, customize, and integrate into your projects.",
+  "main": "dist/index.js",
+  "bin": {
+    "hoocs": "./dist/index.js"
+  },
+  "author": "Azlan Ibrahim",
+  "license": "MIT",
+  "homepage": "https://hoocs.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azlibdar/hoocs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/azlibdar/hoocs/issues"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "hoocs",
+    "custom-hooks",
+    "open-source",
+    "cli driven hooks",
+    "typescript hooks",
+    "copy-paste hooks"
+  ],
+  "type": "commonjs",
+  "files": [
+    "dist/index.js",
+    "hooks"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.6",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}
