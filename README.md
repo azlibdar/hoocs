@@ -1,5 +1,3 @@
-<img width="1200" alt="Hoocs Banner" src="https://github.com/user-attachments/assets/3b00ffb2-63a0-480b-9b6a-9ffae91d3672" />
-
 # Hoocs - A CLI-driven React hooks library
 
 A CLI-driven React hooks library offering a collection of ready-to-use Typescript hooks that you can easily copy, customize, and integrate into your projects.
