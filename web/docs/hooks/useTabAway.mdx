@@ -1,0 +1,40 @@
+---
+title: useTabAway
+description: Tracks the number of times the user switches tabs or minimizes the page.
+seoDescription: The useTabAway hook tracks how many times the user switches away from the current tab or minimizes the page. It increments a count each time the page visibility changes to hidden.
+command: npx rc add useTabAway
+---
+
+## Description
+
+The `useTabAway` hook tracks how many times the user switches away from the current tab or minimizes the page. It increments a count each time the page visibility changes to hidden.
+
+## Usage
+
+```jsx showLineNumbers
+import useTabAway from "src/hooks/useTabAway";
+//..
+const tabAwayCount = useTabAway();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name           | Type     | Description                                                           |
+| -------------- | -------- | --------------------------------------------------------------------- |
+| `tabAwayCount` | `number` | The number of times the user has switched tabs or minimized the page. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const tabAwayCount = useTabAway();
+
+useEffect(() => {
+  if (tabAwayCount > 5) {
+    alert("You've been away for too long!");
+  }
+}, [tabAwayCount]);
+```

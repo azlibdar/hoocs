@@ -1,0 +1,42 @@
+---
+title: useDeviceSize
+description: Tracks the device size and provides breakpoints for mobile, tablet, and desktop views.
+seoDescription: The useDeviceSize hook tracks the window size and returns an object indicating whether the current device is a mobile, tablet, or desktop. It listens for window resize events and updates the size category accordingly.
+command: npx rc add useDeviceSize
+---
+
+## Description
+
+The `useDeviceSize` hook tracks the window size and returns an object indicating whether the current device is a mobile, tablet, or desktop. It listens for window resize events and updates the size category accordingly.
+
+## Usage
+
+```jsx showLineNumbers
+import useDeviceSize from "src/hooks/useDeviceSize";
+//..
+const { isMobileSize, isTabletSize, isDesktopSize } = useDeviceSize();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name            | Type      | Description                                           |
+| --------------- | --------- | ----------------------------------------------------- |
+| `isMobileSize`  | `boolean` | `true` if the device is a mobile, otherwise `false`.  |
+| `isTabletSize`  | `boolean` | `true` if the device is a tablet, otherwise `false`.  |
+| `isDesktopSize` | `boolean` | `true` if the device is a desktop, otherwise `false`. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const { isMobileSize } = useDeviceSize();
+
+return (
+  <div>
+    <p>{isMobileSize ? "You are on a mobile device." : "You are not on a mobile device."}</p>
+  </div>
+);
+```

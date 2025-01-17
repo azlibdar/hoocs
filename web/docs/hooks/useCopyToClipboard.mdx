@@ -1,0 +1,41 @@
+---
+title: useCopyToClipboard
+description: Provides functionality to copy text to the clipboard and tracks the last copied text.
+seoDescription: The useCopyToClipboard hook allows you to copy a string to the clipboard and keeps track of the most recently copied text. It leverages the Clipboard API for seamless and asynchronous clipboard operations.
+command: npx rc add useCopyToClipboard
+---
+
+## Description
+
+The `useCopyToClipboard` hook allows you to copy a string to the clipboard and keeps track of the most recently copied text. It leverages the Clipboard API for seamless and asynchronous clipboard operations.
+
+## Usage
+
+```jsx showLineNumbers
+import useCopyToClipboard from "src/hooks/useCopyToClipboard";
+//..
+const { copiedText, copyToClipboard } = useCopyToClipboard();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name              | Type                      | Description                                 |
+| ----------------- | ------------------------- | ------------------------------------------- |
+| `copiedText`      | `string`                  | The most recently copied text to clipboard. |
+| `copyToClipboard` | `(value: string) => void` | Function to copy a string to the clipboard. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const { copiedText, copyToClipboard } = useCopyToClipboard();
+
+const handleCopy = () => {
+  copyToClipboard("azlibdar@gmail.com");
+};
+
+<p>Copied text: {copiedText}</p>;
+```

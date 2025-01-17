@@ -1,0 +1,40 @@
+---
+title: usePageVisibility
+description: Tracks the visibility status of the current page.
+seoDescription: The usePageVisibility hook tracks whether the page is currently visible or hidden based on the visibilitychange event. It returns a boolean indicating if the page is visible to the user.
+command: npx rc add usePageVisibility
+---
+
+## Description
+
+The `usePageVisibility` hook tracks whether the page is visible or hidden based on the `visibilitychange` event. It returns a boolean indicating if the page is currently visible to the user.
+
+## Usage
+
+```jsx showLineNumbers
+import usePageVisibility from "src/hooks/usePageVisibility";
+//..
+const isVisible = usePageVisibility();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name        | Type      | Description                                       |
+| ----------- | --------- | ------------------------------------------------- |
+| `isVisible` | `boolean` | `true` if the page is visible, otherwise `false`. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const isVisible = usePageVisibility();
+
+useEffect(() => {
+  if (!isVisible) {
+    videoRef.current.pause();
+  }
+}, [isVisible]);
+```

@@ -1,0 +1,40 @@
+---
+title: useWindowSize
+description: Tracks the current window size (width and height) and updates on resize.
+seoDescription: The useWindowSize hook tracks the current width and height of the window. It updates the size whenever the window is resized, making it useful for responsive designs and layouts.
+command: npx rc add useWindowSize
+---
+
+## Description
+
+The `useWindowSize` hook tracks the current width and height of the window. It updates the size whenever the window is resized, making it useful for responsive designs and layouts.
+
+## Usage
+
+```jsx showLineNumbers
+import useWindowSize from "src/hooks/useWindowSize";
+//..
+const { width, height } = useWindowSize();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name     | Type     | Description                       |
+| -------- | -------- | --------------------------------- |
+| `width`  | `number` | The current width of the window.  |
+| `height` | `number` | The current height of the window. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const { width, height } = useWindowSize();
+
+<div>
+  <p>Window width: {width}</p>
+  <p>Window height: {height}</p>
+</div>;
+```

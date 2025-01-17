@@ -1,0 +1,38 @@
+---
+title: useOnline
+description: Tracks the online/offline status of the user's device.
+seoDescription: The useOnline hook tracks the online/offline status of the user's device, using the navigator.onLine property and listening for online and offline events. It returns a boolean indicating whether the device is online.
+command: npx rc add useOnline
+---
+
+## Description
+
+The `useOnline` hook tracks the online/offline status of the user's device, using the `navigator.onLine` property and listening for `online` and `offline` events. It returns a boolean indicating whether the device is online.
+
+## Usage
+
+```jsx showLineNumbers
+import useOnline from "src/hooks/useOnline";
+//..
+const isOnline = useOnline();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name       | Type      | Description                                        |
+| ---------- | --------- | -------------------------------------------------- |
+| `isOnline` | `boolean` | `true` if the device is online, otherwise `false`. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const isOnline = useOnline();
+
+<div>
+  <p>{isOnline ? "You are online!" : "You are offline!"}</p>
+</div>;
+```

@@ -1,0 +1,54 @@
+---
+title: useDefault
+description: Returns a default value when the state is undefined or null.
+seoDescription: The useDefault hook ensures that a state variable always has a valid value. If the state is undefined or null, it returns the default value. It's useful for providing fallback values in React components.
+command: npx rc add useDefault
+---
+
+## Description
+
+The `useDefault` hook ensures that a state variable always has a valid value. If the state is undefined or null, it returns the default value. It's useful for providing fallback values in React components.
+
+## Usage
+
+```jsx showLineNumbers
+import useDefault from "src/hooks/useDefault";
+//..
+const [value, setValue] = useDefault(initialValue, defaultValue);
+```
+
+## Parameters
+
+<Wrapper>
+
+| Name           | Type | Default | Description                                                  |
+| -------------- | ---- | ------- | ------------------------------------------------------------ |
+| `initialValue` | `T`  | `N/A`   | The initial value to set for the state.                      |
+| `defaultValue` | `T`  | `N/A`   | The fallback value used when the state is undefined or null. |
+
+</Wrapper>
+
+## Return Value
+
+<Wrapper>
+
+| Name       | Type                 | Description                                   |
+| ---------- | -------------------- | --------------------------------------------- |
+| `value`    | `T`                  | The current state value or the default value. |
+| `setValue` | `(value: T) => void` | Function to update the state value.           |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const [name, setName] = useDefault("John Doe", "Anonymous");
+
+return (
+  <div>
+    <p>Name: {name}</p>
+    <button onClick={() => setName("Jane Doe")}>Change Name</button>
+    <button onClick={() => setName(null)}>Set Default Name</button>
+  </div>
+);
+```

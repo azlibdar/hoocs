@@ -1,0 +1,51 @@
+---
+title: useDebounce
+description: Delay updates to a value until a specified time period has elapsed
+seoDescription: The useDebounce hook delays the update of a value until a specified time period (delay) has elapsed. It is useful for optimizing performance by reducing the frequency of updates, particularly in scenarios such as search input handling, where frequent changes can lead to unnecessary computations or API calls.
+command: npx rc add useDebounce
+---
+
+## Description
+
+The `useDebounce` hook delays the update of a value until a specified time period `delay` has elapsed. It is useful for optimizing performance by reducing the frequency of updates, particularly in scenarios such as search input handling, where frequent changes can lead to unnecessary computations or API calls.
+
+## Usage
+
+```jsx showLineNumbers
+import useDebounce from "src/hooks/useDebounce";
+//..
+const debouncedValue = useDebounce(value, 300);
+```
+
+## Parameters
+
+<Wrapper>
+
+| Name    | Type     | Default | Description                         |
+| ------- | -------- | ------- | ----------------------------------- |
+| `value` | `string` | `N/A`   | The value to be debounced.          |
+| `delay` | `number` | `N/A`   | The debounce delay in milliseconds. |
+
+</Wrapper>
+
+## Return Value
+
+<Wrapper>
+
+| Name             | Type     | Description                                             |
+| ---------------- | -------- | ------------------------------------------------------- |
+| `debouncedValue` | `string` | The debounced value, updated after the specified delay. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const [query, setQuery] = useState("");
+const debouncedQuery = useDebounce(query, 300);
+
+const filtertedPosts = posts.filter((post) => post.title.includes(debouncedQuery));
+
+<p>Searching for: {debouncedQuery}</p>
+<p>Results: {filtertedPosts.length}</p>
+```

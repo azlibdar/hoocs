@@ -1,0 +1,42 @@
+---
+title: useDocumentTitle
+description: Sets and updates the document title dynamically based on the given value.
+seoDescription: The useDocumentTitle hook updates the document's title dynamically whenever the provided title changes. It is useful for updating the browser tab title in response to state or prop changes.
+command: npx rc add useDocumentTitle
+---
+
+## Description
+
+The `useDocumentTitle` hook updates the document's title dynamically whenever the provided title changes. It is useful for updating the browser tab title in response to state or prop changes.
+
+## Usage
+
+```jsx showLineNumbers
+import useDocumentTitle from "src/hooks/useDocumentTitle";
+//..
+useDocumentTitle("Your New Title");
+```
+
+## Parameters
+
+<Wrapper>
+
+| Parameter | Type     | Description                                                    |
+| --------- | -------- | -------------------------------------------------------------- |
+| `title`   | `string` | The title that you want to set for the document (browser tab). |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const App = () => {
+  useDocumentTitle("Hoocs");
+};
+
+// Or
+
+const changeDocumentTitle = ({ newTitle }: string) => {
+  useDocumentTitle(newTitle);
+};
+```

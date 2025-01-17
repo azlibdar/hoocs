@@ -1,0 +1,36 @@
+---
+title: useReducedMotion
+description: Detects if the user prefers reduced motion in their system settings.
+seoDescription: The useReducedMotion hook detects if the user prefers reduced motion in their system settings, such as animations or transitions. It returns a boolean indicating whether reduced motion is enabled.
+command: npx rc add useReducedMotion
+---
+
+## Description
+
+The `useReducedMotion` hook detects if the user prefers reduced motion in their system settings, such as animations or transitions. It returns a boolean indicating whether reduced motion is enabled (`true` if enabled, `false` otherwise).
+
+## Usage
+
+```jsx showLineNumbers
+import useReducedMotion from "src/hooks/useReducedMotion";
+//..
+const shouldReduceMotion = useReducedMotion();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name                 | Type      | Description                                                   |
+| -------------------- | --------- | ------------------------------------------------------------- |
+| `shouldReduceMotion` | `boolean` | `true` if the user prefers reduced motion, otherwise `false`. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const shouldReduceMotion = useReducedMotion();
+
+<Flower animate={!shouldReduceMotion} />;
+```

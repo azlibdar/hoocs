@@ -1,0 +1,51 @@
+---
+title: useTheme
+description: Manages and toggles between light and dark themes with persistence in localStorage.
+seoDescription: The useTheme hook manages the theme of your application, allowing users to toggle between light and dark modes. It persists the theme choice using localStorage, so the theme remains consistent across sessions.
+command: npx rc add useTheme
+---
+
+## Description
+
+The `useTheme` hook manages the theme of your application, allowing users to toggle between light and dark modes. It persists the theme choice using `localStorage`, so the theme remains consistent across sessions. The hook accepts an optional parameter to set the initial theme (defaults to `"light"`).
+
+## Usage
+
+```jsx showLineNumbers
+import useTheme from "src/hooks/useTheme";
+
+const { theme, setTheme, toggleTheme } = useTheme();
+```
+
+## Parameters
+
+<Wrapper>
+
+| Parameter           | Type              | Default value | Description                                                                                                        |
+| ------------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `defaultForceTheme` | `light` or `dark` | `light`       | This setting only applies on the user's first visit. Subsequent visits will use the theme stored in local storage. |
+
+</Wrapper>
+
+## Return Value
+
+<Wrapper>
+
+| Name          | Type       | Description                                         |
+| ------------- | ---------- | --------------------------------------------------- |
+| `theme`       | `Theme`    | The current theme, either `"light"` or `"dark"`.    |
+| `setTheme`    | `function` | A function to set the theme manually.               |
+| `toggleTheme` | `function` | A function to toggle between light and dark themes. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const { theme, toggleTheme } = useTheme();
+
+<div>
+  <p>The current theme is: {theme}</p>
+  <button onClick={toggleTheme}>Toggle Theme</button>
+</div>;
+```

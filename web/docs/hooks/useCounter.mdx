@@ -1,0 +1,58 @@
+---
+title: useCounter
+description: A hook to manage a numeric counter with options for step, min, and max values.
+seoDescription: The useCounter hook provides a simple way to manage a numeric counter. It includes features to increment, decrement, reset, and configure the counter with custom step, minimum, and maximum values.
+command: npx rc add useCounter
+---
+
+## Description
+
+The `useCounter` hook provides a simple way to manage a numeric counter. It includes features to increment, decrement, reset, and configure the counter with custom step, minimum, and maximum values.
+
+## Usage
+
+```jsx showLineNumbers
+import useCounter from "src/hooks/useCounter";
+//..
+const { count, increment, decrement, reset } = useCounter();
+```
+
+## Parameters
+
+<Wrapper>
+
+| Name           | Type                | Default                                                     | Description                                                       |
+| -------------- | ------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------- |
+| `initialValue` | `number`            | `0`                                                         | The initial value of the counter.                                 |
+| `options`      | `UseCounterOptions` | `{ step: 1, min: MIN_SAFE_INTEGER, max: MAX_SAFE_INTEGER }` | Configuration options for step size, minimum, and maximum values. |
+
+</Wrapper>
+
+## Return Value
+
+<Wrapper>
+
+| Name        | Type         | Description                                         |
+| ----------- | ------------ | --------------------------------------------------- |
+| `count`     | `number`     | The current value of the counter.                   |
+| `increment` | `() => void` | Function to increase the counter by the step value. |
+| `decrement` | `() => void` | Function to decrease the counter by the step value. |
+| `reset`     | `() => void` | Function to reset the counter to the initial value. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const { count, increment, reset } = useCounter(0, { step: 2, min: 0, max: 10 });
+
+const handleIncrement = () => {
+  increment();
+};
+
+const handleReset = () => {
+  reset();
+};
+
+<p>Count: {count}</p>;
+```

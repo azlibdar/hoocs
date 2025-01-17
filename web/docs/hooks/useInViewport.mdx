@@ -1,0 +1,48 @@
+---
+title: useInViewport
+description: Detects when an element is visible within the viewport.
+seoDescription: The useInViewport hook tracks whether a specified element is currently visible within the viewport. It uses the IntersectionObserver API to monitor the visibility of the element and updates the state accordingly.
+command: npx rc add useInViewport
+---
+
+## Description
+
+The `useInViewport` hook tracks whether a specified element is currently visible within the viewport. It uses the `IntersectionObserver` API to monitor the visibility of the element and updates the state accordingly.
+
+## Usage
+
+```jsx showLineNumbers
+import useInViewport from "src/hooks/useInViewport";
+//..
+const isInViewport = useInViewport(ref);
+```
+
+## Parameters
+
+<Wrapper>
+
+| Parameter | Type           | Description                               |
+| --------- | -------------- | ----------------------------------------- |
+| `ref`     | `RefObject<T>` | The `ref` of the HTML element to observe. |
+
+</Wrapper>
+
+## Return Value
+
+<Wrapper>
+
+| Name           | Type      | Description                                                  |
+| -------------- | --------- | ------------------------------------------------------------ |
+| `isInViewport` | `boolean` | `true` if the element is in the viewport, otherwise `false`. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const elementRef = useRef(null);
+const isInViewport = useInViewport(elementRef);
+
+<p>{isInViewport ? "Element is in viewport" : "Element is not in viewport"}</p>
+<div ref={elementRef}></div>;
+```

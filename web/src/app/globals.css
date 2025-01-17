@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  --font-geist-mono: "Geist Mono", monospace;
+}
+
+body {
+  @apply bg-zinc-950;
+}
+
+.animate-spin {
+  animation: spin 30000ms linear infinite forwards;
+  animation-delay: 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin {
+    animation: none;
+  }
+}
+
+.prose {
+  max-width: 100%;
+}
+
+.table-wrapper {
+  @apply w-full overflow-x-auto pb-2;
+}
+
+.custom-prose {
+  /* Inline code */
+  @apply prose-inline-code:bg-zinc-800/60 prose-inline-code:font-geist-mono prose-inline-code:font-medium prose-inline-code:text-amber-400 prose-inline-code:after:content-none prose-inline-code:before:content-none prose-inline-code:py-0.5 prose-inline-code:px-1 prose-inline-code:rounded;
+  /* Heading 2 */
+  @apply prose-h2:text-zinc-200 prose-h2:font-medium prose-h2:text-xl prose-h2:mb-3;
+  /* Table */
+  @apply prose-table:whitespace-nowrap prose-th:text-nowrap md:prose-table:whitespace-normal prose-table:my-0 prose-table:ring-1 prose-table:ring-inset prose-table:ring-zinc-800/60 prose-table:rounded-md prose-thead:border-zinc-800/60  prose-tr:border-zinc-800/60 prose-td:border-r prose-th:border-r last:prose-th:border-0 prose-th:border-zinc-800/60 prose-th:font-medium prose-td:border-zinc-800/60 last:prose-td:border-0 prose-td:py-2 prose-td:px-4 prose-th:py-2 prose-th:px-4 prose-thead:p-0 prose-thead:bg-zinc-900 prose-table:overflow-hidden prose-th:text-zinc-200;
+  /* Code blocks */
+  @apply prose-pre:bg-zinc-900 prose-pre:p-6 prose-code:font-geist-mono prose-code:font-medium prose-code:pr-5;
+}

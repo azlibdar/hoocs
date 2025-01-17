@@ -1,0 +1,40 @@
+---
+title: usePrevious
+description: Tracks and returns the previous value of a state variable.
+seoDescription: The usePrevious hook keeps track of the previous value of a state variable. It returns an array containing the previous value, current value, and a function to update the state. This is useful for comparing previous and current states in React components.
+command: npx rc add usePrevious
+---
+
+## Description
+
+The `usePrevious` hook keeps track of the previous value of a state variable. It returns an array containing the previous value, current value, and a function to update the state. This is useful for comparing previous and current states in React components.
+
+## Usage
+
+```jsx showLineNumbers
+import usePrevious from "src/hooks/usePrevious";
+//..
+const [previousValue, currentValue, setValue] = usePrevious(initialValue);
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name            | Type             | Description                                                      |
+| --------------- | ---------------- | ---------------------------------------------------------------- |
+| `previousValue` | `T or undefined` | The previous value of the state, or `undefined` on first render. |
+| `currentValue`  | `T`              | The current value of the state.                                  |
+| `setValue`      | `function`       | A function to update the state with a new value.                 |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const [previousCount, count, setCount] = usePrevious(0);
+
+<p>Current Count: {count}</p>
+<p>Previous Count: {previousCount}</p>
+<button onClick={() => setCount(count + 1)}>Increment</button>
+```

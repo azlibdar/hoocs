@@ -1,0 +1,40 @@
+---
+title: useLockScroll
+description: Locks or unlocks the scroll on the body element dynamically.
+seoDescription: The useLockScroll hook manages the scroll locking behavior of the body element. When scroll is locked, it disables scrolling and compensates for the scrollbar width, ensuring layout stability.
+command: npx rc add useLockScroll
+---
+
+## Description
+
+The `useLockScroll` hook manages the scroll locking behavior of the body element. When scroll is locked, it disables scrolling and compensates for the scrollbar width, ensuring layout stability.
+
+## Usage
+
+```jsx showLineNumbers
+import useLockScroll from "src/hooks/useLockScroll";
+//...
+const setLock = useLockScroll();
+```
+
+## Return Value
+
+<Wrapper>
+
+| Name      | Type       | Description                                                           |
+| --------- | ---------- | --------------------------------------------------------------------- |
+| `setLock` | `function` | A function to lock or unlock the scroll by passing `true` or `false`. |
+
+</Wrapper>
+
+## Example
+
+```jsx showLineNumbers
+const [isModalOpen, setIsModalOpen] = useState(false);
+const setLock = useLockScroll();
+
+const handleOpenModal = () => {
+  setIsModalOpen(true);
+  setLock(true);
+};
+```
