@@ -8,7 +8,7 @@ const EmptyHookCard = () => {
         <SearchX size={24} strokeWidth={1.75} className="text-rose-400" />
       </div>
       <h2 className="text-2xl text-center mt-4 font-semibold text-zinc-300">Need Another Hook?</h2>
-      <Button size="small" variant="primary" shape="pill" href="/docs/contributing" className="mt-4">
+      <Button size="small" variant="primary" shape="pill" href="https://github.com/azlibdar/hoocs/issues" className="mt-4">
         Contribute on GitHub
       </Button>
     </div>
