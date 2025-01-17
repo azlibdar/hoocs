@@ -7,6 +7,7 @@ A CLI-driven React hooks library offering a collection of ready-to-use Typescrip
 ![npm version](https://img.shields.io/npm/v/hoocs.svg)
 ![license](https://img.shields.io/npm/l/hoocs)
 ![downloads](https://img.shields.io/npm/dm/hoocs)
+![typeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue)
 
 <br>
 
@@ -14,7 +15,7 @@ A CLI-driven React hooks library offering a collection of ready-to-use Typescrip
 
 #### Install the CLI Globally:
 
-```shell
+```powershell
 npm install -g hoocs
 ```
 
@@ -22,20 +23,20 @@ npm install -g hoocs
 
 This will create `hoocs.json` in the root of your project and help you set destination paths for hooks.
 
-```shell
+```powershell
 npx hoocs init
 ```
 
 #### Add Hooks to Your Project:
 
-```shell
+```powershell
 npx hoocs add useTheme
 ```
 
 #### List Available Hooks:
 
-```shell
-npx react-customs list
+```powershell
+npx hoocs list
 ```
 
 <br>
@@ -46,7 +47,7 @@ npx react-customs list
 
 ## Hooks and Documentation
 
-> Visit: [Hoocs Documentation](https://hoocs.vercel.app/) for detailed information on each hook.
+Visit: [Hoocs Documentation](https://hoocs.vercel.app/) for detailed information on each hook.
 
 ### Available Hooks
 
