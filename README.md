@@ -45,25 +45,25 @@ npx hoocs list
 
 ## Hooks and Documentation
 
-Visit: [Hoocs Documentation](https://hoocs.vercel.app/) for detailed information on each hook.
+Visit: [Hoocs Documentation](https://hoocs-web.vercel.app/) for detailed information on each hook.
 
 ### Available Hooks
 
-- [useCopyToClipboard](https://hoocs.vercel.app/useCopyToClipboard)
-- [useCounter](https://hoocs.vercel.app/useCounter)
-- [useDebounce](https://hoocs.vercel.app/useDebounce)
-- [useDefault](https://hoocs.vercel.app/useDefault)
-- [useDeviceSize](https://hoocs.vercel.app/useDeviceSize)
-- [useDocumentTitle](https://hoocs.vercel.app/useDocumentTitle)
-- [useInViewport](https://hoocs.vercel.app/useInViewport)
-- [useLockScroll](https://hoocs.vercel.app/useLockScroll)
-- [useOnline](https://hoocs.vercel.app/useOnline)
-- [usePageVisibility](https://hoocs.vercel.app/usePageVisibility)
-- [usePrevious](https://hoocs.vercel.app/usePrevious)
-- [useReducedMotion](https://hoocs.vercel.app/useReducedMotion)
-- [useTabAway](https://hoocs.vercel.app/useTabAway)
-- [useTheme](https://hoocs.vercel.app/useTheme)
-- [useWindowSize](https://hoocs.vercel.app/useWindowSize)
+- [useCopyToClipboard](https://hoocs-web.vercel.app/useCopyToClipboard)
+- [useCounter](https://hoocs-web.vercel.app/useCounter)
+- [useDebounce](https://hoocs-web.vercel.app/useDebounce)
+- [useDefault](https://hoocs-web.vercel.app/useDefault)
+- [useDeviceSize](https://hoocs-web.vercel.app/useDeviceSize)
+- [useDocumentTitle](https://hoocs-web.vercel.app/useDocumentTitle)
+- [useInViewport](https://hoocs-web.vercel.app/useInViewport)
+- [useLockScroll](https://hoocs-web.vercel.app/useLockScroll)
+- [useOnline](https://hoocs-web.vercel.app/useOnline)
+- [usePageVisibility](https://hoocs-web.vercel.app/usePageVisibility)
+- [usePrevious](https://hoocs-web.vercel.app/usePrevious)
+- [useReducedMotion](https://hoocs-web.vercel.app/useReducedMotion)
+- [useTabAway](https://hoocs-web.vercel.app/useTabAway)
+- [useTheme](https://hoocs-web.vercel.app/useTheme)
+- [useWindowSize](https://hoocs-web.vercel.app/useWindowSize)
 
 <br>
 
