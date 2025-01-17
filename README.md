@@ -2,7 +2,7 @@
 
 # Hoocs - A CLI-driven React hooks library
 
-A CLI-driven React hooks library offering a collection of ready-to-use typescript hooks that you can easily copy, customize, and integrate into your projects.
+A CLI-driven React hooks library offering a collection of ready-to-use Typescript hooks that you can easily copy, customize, and integrate into your projects.
 
 ![npm version](https://img.shields.io/npm/v/hoocs.svg)
 ![license](https://img.shields.io/npm/l/hoocs)
@@ -20,7 +20,7 @@ npm install -g hoocs
 
 #### Add Configuration File:
 
-This will create `hoocs.json` in the root of your project and It will help you set destination paths for hooks.
+This will create `hoocs.json` in the root of your project and help you set destination paths for hooks.
 
 ```shell
 npx hoocs init
@@ -37,6 +37,10 @@ npx hoocs add useTheme
 ```shell
 npx react-customs list
 ```
+
+<br>
+
+> Need hooks for JavaScript projects? Until we officially support them, there is a simple workaround. After installing, you can change the file extension to `.js` and remove the types from the hook file.
 
 <br>
 
