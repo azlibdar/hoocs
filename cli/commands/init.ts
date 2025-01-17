@@ -13,7 +13,7 @@ export async function handleInit() {
   const answers = await inquirer.prompt([
     {
       type: "input",
-      name: "installPath",
+      name: "destination",
       message: "Set default installation path for hooks:",
       default: "src/hooks/",
     },

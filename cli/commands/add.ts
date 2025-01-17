@@ -8,27 +8,27 @@ export async function handleAdd(hookName: string) {
 
   if (!existsSync(configPath)) {
     console.log(chalk.yellow(`Configuration file not found. Initializing with default path.`));
-    writeJsonSync(configPath, { installPath: "src/hooks/" }, { spaces: 2 });
+    writeJsonSync(configPath, { destination: "src/hooks/" }, { spaces: 2 });
   }
 
-  const { installPath } = readJsonSync(configPath);
+  const { destination } = readJsonSync(configPath);
 
-  // Validate the installPath and hookName
-  if (typeof installPath !== "string" || typeof hookName !== "string") {
+  // Validate the destination and hookName
+  if (typeof destination !== "string" || typeof hookName !== "string") {
     console.log(chalk.red("Invalid configuration or hook name. Please check your input."));
     return;
   }
 
   const hookSourcePath = resolve(__dirname, "../../hooks", `${hookName}.ts`);
-  const hookDestPath = resolve(process.cwd(), installPath, `${hookName}.ts`);
+  const hookDestPath = resolve(process.cwd(), destination, `${hookName}.ts`);
 
   if (!existsSync(hookSourcePath)) {
-    console.log(chalk.red(`Hook "${hookName}" not found in source directory. Use 'npx hoocs list' to see available hooks.`));
+    console.log(chalk.red(`Hook "${hookName}" is not available. Use 'hoocs list' to see available hooks.`));
     return;
   }
 
-  if (!existsSync(installPath)) {
-    mkdirsSync(installPath);
+  if (!existsSync(destination)) {
+    mkdirsSync(destination);
   }
 
   if (existsSync(hookDestPath)) {

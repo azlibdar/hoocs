@@ -19,18 +19,18 @@ export function handleList() {
   const configPath = resolve(process.cwd(), "hoocs.json");
   if (!existsSync(configPath)) {
     console.log(chalk.yellow(`Configuration file not found. Initializing with default path.`));
-    writeJsonSync(configPath, { installPath: "src/hooks/" }, { spaces: 2 });
+    writeJsonSync(configPath, { destination: "src/hooks/" }, { spaces: 2 });
   }
 
-  const { installPath } = readJsonSync(configPath);
+  const { destination } = readJsonSync(configPath);
 
-  // Validate the installPath
-  if (typeof installPath !== "string") {
+  // Validate the destination
+  if (typeof destination !== "string") {
     console.log(chalk.red("Invalid installation path in configuration. Please check your config file."));
     return;
   }
 
-  const userHookFolder = resolve(process.cwd(), installPath);
+  const userHookFolder = resolve(process.cwd(), destination);
 
   console.log(chalk.blue("Available Hooks:"));
   hooks.forEach((hookName) => {
