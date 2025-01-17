@@ -1,7 +1,7 @@
 {
   "name": "hoocs",
-  "version": "0.0.1",
-  "description": "A CLI-driven React hooks library offering a collection of ready-to-use hooks that you can easily copy, customize, and integrate into your projects.",
+  "version": "1.0.0",
+  "description": "A CLI-driven React hooks library offering a collection of ready-to-use Typescript hooks that you can easily copy, customize, and integrate into your projects.",
   "main": "dist/index.js",
   "bin": {
     "hoocs": "./dist/index.js"
