@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - "web/**"
+      - ".github/**"
       - "**.md"
       - ".gitignore"
       - "LICENSE"
@@ -14,6 +15,7 @@ on:
       - main
     paths-ignore:
       - "web/**"
+      - ".github/**"
       - "**.md"
       - ".gitignore"
       - "LICENSE"
@@ -33,6 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Build package
+        run: npm run build
 
       - name: Publish to npm
         run: npm publish
