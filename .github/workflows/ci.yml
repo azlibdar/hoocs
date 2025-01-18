@@ -9,7 +9,6 @@ on:
       - ".github/**"
       - "**.md"
       - ".gitignore"
-      - "LICENSE"
   pull_request:
     branches:
       - main
@@ -18,7 +17,6 @@ on:
       - ".github/**"
       - "**.md"
       - ".gitignore"
-      - "LICENSE"
 
 jobs:
   build-and-publish:
