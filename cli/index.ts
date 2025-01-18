@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env node
 
 import { program } from "commander";
 import { handleInit } from "./commands/init";
