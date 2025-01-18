@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 
 import { program } from "commander";
-import { readJsonSync, writeJsonSync, existsSync, mkdirsSync, copySync, readdirSync } from "fs-extra";
-import { resolve, join, relative } from "path";
 import chalk from "chalk";
 import inquirer from "inquirer";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import fs from "fs-extra";
+import path from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Initialize config file
 async function handleInit() {
-  const configPath = resolve(process.cwd(), "hoocs.json");
-  if (existsSync(configPath)) {
+  const configPath = path.resolve(process.cwd(), "hoocs.json");
+  if (fs.existsSync(configPath)) {
     console.log(chalk.yellow("Config file already exists. No changes made."));
     return;
   }
@@ -23,20 +28,20 @@ async function handleInit() {
     },
   ]);
 
-  writeJsonSync(configPath, answers, { spaces: 2 });
+  fs.writeJsonSync(configPath, answers, { spaces: 2 });
   console.log(chalk.green(`Configuration saved to ${configPath}`));
 }
 
 // Add a hook
 async function handleAdd(hookName: string) {
-  const configPath = resolve(process.cwd(), "hoocs.json");
+  const configPath = path.resolve(process.cwd(), "hoocs.json");
 
-  if (!existsSync(configPath)) {
+  if (!fs.existsSync(configPath)) {
     console.log(chalk.yellow(`Configuration file not found. Initializing with default path.`));
-    writeJsonSync(configPath, { destination: "src/hooks/" }, { spaces: 2 });
+    fs.writeJsonSync(configPath, { destination: "src/hooks/" }, { spaces: 2 });
   }
 
-  const { destination } = readJsonSync(configPath);
+  const { destination } = fs.readJsonSync(configPath);
 
   // Validate the destination and hookName
   if (typeof destination !== "string" || typeof hookName !== "string") {
@@ -44,19 +49,19 @@ async function handleAdd(hookName: string) {
     return;
   }
 
-  const hookSourcePath = resolve(__dirname, "hooks", `${hookName}.ts`);
-  const hookDestPath = resolve(process.cwd(), destination, `${hookName}.ts`);
+  const hookSourcePath = path.resolve(__dirname, "../hooks", `${hookName}.ts`);
+  const hookDestPath = path.resolve(process.cwd(), destination, `${hookName}.ts`);
 
-  if (!existsSync(hookSourcePath)) {
+  if (!fs.existsSync(hookSourcePath)) {
     console.log(chalk.red(`Hook "${hookName}" is not available. Use 'hoocs list' to see available hooks.`));
     return;
   }
 
-  if (!existsSync(destination)) {
-    mkdirsSync(destination);
+  if (!fs.existsSync(destination)) {
+    fs.mkdirsSync(destination);
   }
 
-  if (existsSync(hookDestPath)) {
+  if (fs.existsSync(hookDestPath)) {
     const { overwrite } = await inquirer.prompt([
       {
         type: "confirm",
@@ -72,18 +77,19 @@ async function handleAdd(hookName: string) {
     }
   }
 
-  copySync(hookSourcePath, hookDestPath);
-  const relativePath = relative(process.cwd(), hookDestPath);
+  fs.copySync(hookSourcePath, hookDestPath);
+  const relativePath = path.relative(process.cwd(), hookDestPath);
   console.log(chalk.green(`Hook "${hookName}" copied successfully to ${relativePath}.`));
 }
 
 // List all hooks
 function handleList() {
-  const libraryHooksPath = resolve(__dirname, "hooks");
+  const libraryHooksPath = path.resolve(__dirname, "../hooks");
 
   let hooks: string[] = [];
   try {
-    hooks = readdirSync(libraryHooksPath)
+    hooks = fs
+      .readdirSync(libraryHooksPath)
       .filter((file) => file.endsWith(".ts"))
       .map((file) => file.replace(".ts", ""))
       .sort();
@@ -92,13 +98,13 @@ function handleList() {
     return;
   }
 
-  const configPath = resolve(process.cwd(), "hoocs.json");
-  if (!existsSync(configPath)) {
+  const configPath = path.resolve(process.cwd(), "hoocs.json");
+  if (!fs.existsSync(configPath)) {
     console.log(chalk.yellow(`Configuration file not found. Initializing with default path.`));
-    writeJsonSync(configPath, { destination: "src/hooks/" }, { spaces: 2 });
+    fs.writeJsonSync(configPath, { destination: "src/hooks/" }, { spaces: 2 });
   }
 
-  const { destination } = readJsonSync(configPath);
+  const { destination } = fs.readJsonSync(configPath);
 
   // Validate the destination
   if (typeof destination !== "string") {
@@ -106,12 +112,12 @@ function handleList() {
     return;
   }
 
-  const userHookFolder = resolve(process.cwd(), destination);
+  const userHookFolder = path.resolve(process.cwd(), destination);
 
   console.log(chalk.blue("Available Hooks:"));
   hooks.forEach((hookName) => {
-    const userHookPath = join(userHookFolder, `${hookName}.ts`);
-    if (existsSync(userHookPath)) {
+    const userHookPath = path.join(userHookFolder, `${hookName}.ts`);
+    if (fs.existsSync(userHookPath)) {
       console.log(chalk.green(`- ${hookName} (Installed)`));
     } else {
       console.log(chalk.white(`- ${hookName}`));
